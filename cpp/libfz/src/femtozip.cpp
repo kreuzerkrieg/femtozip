@@ -70,7 +70,7 @@ void *fz_load_model(const char *path) {
         file.close();
         return reinterpret_cast<void *>(model);
     }
-    catch (runtime_error& e) {
+    catch (runtime_error&) {
         return 0;
     }
 }

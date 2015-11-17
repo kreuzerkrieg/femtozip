@@ -20,7 +20,7 @@
  */
 
 #include <stdlib.h>
-#include <strings.h>
+//#include <strings.h>
 #include <femtozip.h>
 
 const char *example_get_doc_callback(int doc_index, int *doc_len, void *user_data) {

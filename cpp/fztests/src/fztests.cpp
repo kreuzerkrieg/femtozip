@@ -20,8 +20,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <pthread.h>
-#include <sys/time.h>
 #include <string.h>
 #include <stdlib.h>
 #include <FileDocumentList.h>
@@ -43,6 +41,9 @@
 #include <DataIO.h>
 #include <femtozip.h>
 #include <IntSet.h>
+#include <filesystem>
+#include <thread>
+#include <Util.h>
 
 using namespace std;
 using namespace femtozip;
@@ -62,12 +63,6 @@ void assertTrue(bool result, const string& message) {
     else {
         successCount++;
     }
-}
-
-long long getTimeMillis() {
-    timeval tim;
-    gettimeofday(&tim, NULL);
-    return tim.tv_sec * 1000 + tim.tv_usec / 1000;
 }
 
 void reportTestResults() {
@@ -496,9 +491,9 @@ void *runThread(void *data) {
         source.push_back('a' + (rand() % 26));
     }
 
-    long long start = getTimeMillis();
+    long long start = Util::getMillis();
 
-    while (getTimeMillis() - start < 1500) {
+    while (Util::getMillis() - start < 1500) {
         ostringstream ostr;
         model->compress(&source[0], source.size(), ostr);
         string outstr = ostr.str();
@@ -522,17 +517,16 @@ void testThreadedCompressionModel(CompressionModel *model) {
     CStringDocumentList docs(&dict[0], NULL);
     model->build(docs);
 
-    vector<pthread_t> threads;
+    vector<std::thread> threads;
     int ret;
 
     for (int i = 0; i < 5; i++) {
-        threads.resize(threads.size() + 1);
-        ret = pthread_create(&threads[threads.size() - 1], 0, runThread, model);
-        assertTrue(ret == 0, "Error creating thread");
+		threads.push_back(std::thread(std::bind(runThread, model)));
     }
 
-    for (int i = 0; i < 5; i++) {
-        pthread_join(threads[i], 0);
+    for (auto& thread : threads)
+	{
+		thread.join();
     }
 }
 

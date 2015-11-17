@@ -28,7 +28,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <strings.h>
+//#include <strings.h>
 #include <string.h>
 #include <stdlib.h>
 

@@ -31,6 +31,7 @@
 #include "GZipCompressionModel.h"
 #include "GZipDictionaryCompressionModel.h"
 #include "SamplingDocumentList.h"
+#include <algorithm>
 
 using namespace std;
 

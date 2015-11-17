@@ -14,7 +14,6 @@
  *   limitations under the License.
  */
 
-#include <dirent.h>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -23,8 +22,7 @@
 #include <stdlib.h>
 #include <string>
 #include <string.h>
-#include <sys/stat.h>
-#include <sys/time.h>
+#include <experimental/filesystem>
 #include <vector>
 
 #include <DataIO.h>
@@ -32,6 +30,9 @@
 #include <FileUtil.h>
 #include <CompressionModel.h>
 #include <DictionaryOptimizer.h>
+#include <chrono>
+#include <algorithm>
+#include <Util.h>
 
 using namespace std;
 using namespace femtozip;
@@ -49,12 +50,6 @@ bool benchmark = false;
 int level = 9;
 int maxDictionary = -1;
 bool dictOnly;
-
-long long getTimeMillis() {
-    timeval tim;
-    gettimeofday(&tim, NULL);
-    return tim.tv_sec * 1000 + tim.tv_usec / 1000;
-}
 
 CompressionModel *loadModel() {
     ifstream file(modelPath.c_str(), ios::in | ios::binary);
@@ -82,10 +77,10 @@ void buildModel() {
 
     cout << "Building model..." << endl;
 
-    long long start = getTimeMillis();
+    long long start = Util::getMillis();
     CompressionModel *model = CompressionModel::buildOptimalModel(documents, true, models.size() == 0 ? 0 : &models);
     model->setCompressionLevel(level);
-    long long duration = getTimeMillis() - start;
+    long long duration = Util::getMillis() - start;
 
     if (verbose || benchmark) {
         cout <<"Model built in " << fixed << setprecision(3) << (duration / 1000.0) << "s" << endl;
@@ -102,12 +97,12 @@ void buildDictionary() {
 
     cout << "Building dictionary..." << endl;
 
-    long long start = getTimeMillis();
+    long long start = Util::getMillis();
 
     DictionaryOptimizer optimizer(documents);
     string dictionary = optimizer.optimize(maxDictionary >= 0 ? maxDictionary : 64*1024);
 
-    long long duration = getTimeMillis() - start;
+    long long duration = Util::getMillis() - start;
 
     if (verbose || benchmark) {
         cout << "Dictionary built in " << fixed << setprecision(3) << (duration / 1000.0) << "s" << endl;
@@ -141,9 +136,9 @@ void compress() {
 
         ostringstream outstr;
 
-        long long start = getTimeMillis();
+        long long start = Util::getMillis();
         model->compress(buf, length, outstr);
-        duration += (getTimeMillis() - start);
+        duration += (Util::getMillis() - start);
         string compressedData = outstr.str();
         totalCompressedBytes += compressedData.length();
 
@@ -186,9 +181,9 @@ void decompress() {
 
         ostringstream outstr;
 
-        long long start = getTimeMillis();
+        long long start = Util::getMillis();
         model->decompress(buf, length, outstr);
-        duration += (getTimeMillis() - start);
+        duration += (Util::getMillis() - start);
 
         if (!benchmark) {
             string decompressedData = outstr.str();
@@ -299,38 +294,22 @@ void parseArgs(int argc, const char **argv) {
             usage(string("Unknown argument ") + arg);
         }
         else {
-            struct stat statBuf;
-
-            if (stat(arg, &statBuf) != 0) {
-                usage(string("Cannot stat ") + arg);
-            }
-
-            if (S_ISDIR(statBuf.st_mode)) {
-                DIR *dirp;
-                struct dirent *dp;
-
-                if ((dirp = opendir(arg)) == NULL) {
-                    usage(string("Cannot opendir ") + arg);
-                }
-
-                while ((dp = readdir(dirp)) != NULL) {
-                    struct stat st;
-                    string path = string(arg) + "/" + dp->d_name;
-                    if (0 == stat(path.c_str(), &st)) {
-                        if (S_ISREG(st.st_mode)) {
-                            paths.push_back(path);
-                        }                   
-                    }
-                    else {
-                        usage(string("Cannot stat ") + arg);
-                    }
-                }
-
-                closedir(dirp);
-            }
-            else {
-                paths.push_back(string(arg));
-            }
+			namespace fs = std::experimental::filesystem;
+			fs::path path(arg);
+			if(fs::is_directory(path))
+			{
+				for(auto& entry : fs::recursive_directory_iterator(path))
+				{
+					if(fs::is_regular_file(entry))
+					{
+						paths.push_back(entry.path().string());
+					}
+				}
+			}
+			else if(fs::is_regular_file(path))
+			{
+				paths.push_back(path.string());
+			}
         }
     }
 

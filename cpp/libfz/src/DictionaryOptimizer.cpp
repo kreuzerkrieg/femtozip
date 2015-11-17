@@ -289,9 +289,9 @@ pair<int, int> DictionaryOptimizer::docStartForIndex(int index) {
 
 
 void DictionaryOptimizer::dumpSuffixArray() {
-    cout << string(&bytes[0], bytes.size()) << endl;
+    cout << string(&bytes[0], bytes.size()).c_str() << endl;
     for (size_t i = 0; i < suffixArray.size(); i++) {
-        cout << right << setw(6) << i << setw(4) << suffixArray[i] << setw(4) << lcpArray[i] << left << "   " << string(&bytes[suffixArray[i]], bytes.size() - suffixArray[i]) << endl;
+        cout << right << setw(6) << i << setw(4) << suffixArray[i] << setw(4) << lcpArray[i] << left << "   " << string(&bytes[suffixArray[i]], bytes.size() - suffixArray[i]).c_str() << endl;
     }
 }
 
@@ -299,7 +299,7 @@ void DictionaryOptimizer::dumpSubstrings(vector<Substring>& subs) {
     vector<Substring>::reverse_iterator i;
     int index = 0;
     for (i = subs.rbegin(); i != subs.rend(); i++, index++) {
-        cout << right << setw(6) << index << setw(4) << i->getScore() << left << "   " << string(&bytes[suffixArray[i->getIndex()]], i->getLength()) << endl;
+        cout << right << setw(6) << index << setw(4) << i->getScore() << left << "   " << string(&bytes[suffixArray[i->getIndex()]], i->getLength()).c_str() << endl;
     }
 }
 

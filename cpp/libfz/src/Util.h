@@ -17,16 +17,14 @@
 #ifndef UTIL_H_
 #define UTIL_H_
 
-#include <sys/time.h>
+#include <chrono>
 
 namespace femtozip {
 
 class Util {
 public:
     static long long getMillis() {
-        timeval tim;
-        gettimeofday(&tim, NULL);
-        return tim.tv_sec * 1000LL + tim.tv_usec / 1000LL;
+		return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     }
 };
 
