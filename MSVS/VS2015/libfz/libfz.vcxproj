@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\cpp\libfz\src\BitInput.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\BitOutput.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\Codeword.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\CompressionModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\CStringDocumentList.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\DataIO.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\DecodeTable.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\DictionaryOptimizer.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\DocumentList.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\femtozip.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\FemtoZipCompressionModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\FemtoZipHuffmanModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\FileDocumentList.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\FileUtil.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\FrequencyHuffmanModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\GZipCompressionModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\GZipDictionaryCompressionModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\HuffmanDecoder.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\HuffmanEncoder.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\HuffmanModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\IntSet.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\NoCopyReadOnlyStreamBuf.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\PrefixHash.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\PureHuffmanCompressionModel.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\SamplingDocumentList.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\sarray.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\Substring.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\SubstringPacker.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\SubstringUnpacker.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\Util.h" />
+    <ClInclude Include="..\..\..\cpp\libfz\src\VerboseStringConsumer.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\cpp\libfz\src\Codeword.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\CompressionModel.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\CStringDocumentList.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\DataIO.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\DecodeTable.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\DictionaryOptimizer.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\DocumentList.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\femtozip.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\FemtoZipCompressionModel.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\FileDocumentList.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\FileUtil.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\FrequencyHuffmanModel.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\GZipCompressionModel.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\GZipDictionaryCompressionModel.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\HuffmanDecoder.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\HuffmanEncoder.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\lcp.c" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\PrefixHash.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\PureHuffmanCompressionModel.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\SamplingDocumentList.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\sarray.c" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\Substring.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\SubstringPacker.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\SubstringUnpacker.cpp" />
+    <ClCompile Include="..\..\..\cpp\libfz\src\VerboseStringConsumer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{05710277-CA19-4E58-8597-06E036DAA7CE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>libfz</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\fzip.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\fzip.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\fzip.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\fzip.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(Bin)</OutDir>
+    <IntDir>$(Intermediate)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Bin)</OutDir>
+    <IntDir>$(Intermediate)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(Bin)</OutDir>
+    <IntDir>$(Intermediate)</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(Bin)</OutDir>
+    <IntDir>$(Intermediate)</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions);_SCL_SECURE_NO_WARNINGS</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
+  </Target>
+</Project>

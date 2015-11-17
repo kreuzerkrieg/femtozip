@@ -19,9 +19,8 @@
  * For more see femtozip.h
  */
 
-#include <stdlib.h>
-//#include <strings.h>
 #include <femtozip.h>
+#include <string>
 
 const char *example_get_doc_callback(int doc_index, int *doc_len, void *user_data) {
     char **docs = (char **)(user_data);

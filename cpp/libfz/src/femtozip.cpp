@@ -102,7 +102,7 @@ int fz_compress(void *model, const char *source, int source_len, char *dest, int
     m->compress(source, source_len, out);
     string outstr = out.str();
     if (outstr.length() > (size_t)dest_capacity) {
-        return -outstr.length();
+        return -static_cast<int>(outstr.length());
     }
     memcpy(dest, outstr.c_str(), outstr.length());
     return outstr.length();
@@ -114,7 +114,7 @@ int fz_decompress(void *model, const char *source, int source_len, char *dest, i
     m->decompress(source, source_len, out);
     string outstr = out.str();
     if (outstr.length() > (size_t)dest_capacity) {
-        return -outstr.length();
+        return -static_cast<int>(outstr.length());
     }
     memcpy(dest, outstr.c_str(), outstr.length());
     return outstr.length();

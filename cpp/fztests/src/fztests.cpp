@@ -22,6 +22,7 @@
 #include <vector>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <FileDocumentList.h>
 #include <CStringDocumentList.h>
 #include <DictionaryOptimizer.h>
@@ -518,7 +519,6 @@ void testThreadedCompressionModel(CompressionModel *model) {
     model->build(docs);
 
     vector<std::thread> threads;
-    int ret;
 
     for (int i = 0; i < 5; i++) {
 		threads.push_back(std::thread(std::bind(runThread, model)));
@@ -631,7 +631,8 @@ void testCApi() {
         testCApiCompression(model, *test_doc);
     }
 
-    const char *path = tmpnam(NULL);
+	char *path = nullptr;
+	tmpnam_s(path, TMP_MAX);
     fz_save_model(model, path);
     fz_release_model(model);
 
